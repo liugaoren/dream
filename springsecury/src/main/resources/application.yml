@@ -1,0 +1,9 @@
+server:
+  port: 8084
+
+#自定义security的登录用户名和密码
+#spring:
+#  security:
+#    user:
+#      name: admin #默认使用的用户名
+#      password: 123456 #默认使用的密码© 2020-2021 yangbuyi.top 版权所有。
