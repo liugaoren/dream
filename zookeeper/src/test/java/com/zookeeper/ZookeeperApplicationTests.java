@@ -53,7 +53,7 @@ class ZookeeperApplicationTests {
     public void testCreate2() throws Exception {
         //1. 基本创建
         //如果创建节点，没有指定数据，则默认将当前客户端的ip作为数据存储
-        String path = client.create().forPath("/app1");
+        String path = client.create().forPath("/lock");
         System.out.println(path);
     }
     @Test
