@@ -1,7 +1,6 @@
 #### **1.在docker中安装FASTDFS**
 
      docker pull delron/fastdfs
-
 #### **2.使用docker镜像构建tracker容器（跟踪服务器，起到调度的作用）**
 
     docker run -dti --network=host --name tracker -v /var/fdfs/tracker:/var/fdfs -v /etc/localtime:/etc/localtime delron/fastdfs tracker
