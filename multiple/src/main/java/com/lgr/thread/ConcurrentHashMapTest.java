@@ -1,6 +1,6 @@
 package com.lgr.thread;
 
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.*;
 
 public class ConcurrentHashMapTest {
     public static void main(String[] args) {
@@ -16,6 +16,7 @@ public class ConcurrentHashMapTest {
         Integer key2 = getKey(new Integer(5));
         System.out.println(System.identityHashCode(key2));
         System.out.println(map.size());
+
     }
 
     private static ConcurrentHashMap<Integer, Integer> map=new ConcurrentHashMap<>();
