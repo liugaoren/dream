@@ -5,12 +5,16 @@ spring:
       # 配置消费者消息offset是否自动重置(消费者重连会能够接收最开始的消息)
       auto-offset-reset: earliest
       enable-auto-commit: false
-
-    producer:
-      bootstrap-servers: localhost:9092
       # 发送的对象信息变为json格式
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.product.pojo"
+    producer:
+      bootstrap-servers: localhost:9092
+      # 发送的对象信息变为json格式
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     listener:
       ack-mode: manual_immediate
   jackson:

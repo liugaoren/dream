@@ -1,5 +1,6 @@
 package com.product.controller;
 
+import com.product.pojo.Book;
 import com.product.service.BookProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,13 @@ public class ProductController {
     @RequestMapping("send")
     public String send(String topic, String message){
         bookProducerService.sendMessage(topic,message);
+        return "往"+topic+"发送消息："+message;
+    }
+
+    @RequestMapping("sendObject")
+    public String sendObject(String topic, String message){
+
+        bookProducerService.sendMessage(topic,new Book(1L,"eaf"));
         return "往"+topic+"发送消息："+message;
     }
 

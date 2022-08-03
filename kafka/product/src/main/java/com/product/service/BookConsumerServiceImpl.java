@@ -28,11 +28,11 @@ public class BookConsumerServiceImpl implements BookConsumerService{
 
     @Override
     @KafkaListener(topics = {"${kafka.topic.my-topic}"}, groupId = "group1")
-    public void consumeMessage(ConsumerRecord<String, String> bookConsumerRecord, Acknowledgment ack) {
+    public void consumeMessage(ConsumerRecord<String, Object> bookConsumerRecord, Acknowledgment ack) {
         try {
             ProductController.number++;
-            //Book book = objectMapper.readValue(bookConsumerRecord.value(), Book.class);
-            logger.info("消费者消费topic:{} partition:{}的消息 -> {}", bookConsumerRecord.topic(), bookConsumerRecord.partition(), bookConsumerRecord.value());
+            System.out.println(bookConsumerRecord.value());
+            logger.info("消费者消费topic:{} partition:{}的消息 -> {}", bookConsumerRecord.topic(), bookConsumerRecord.partition(),bookConsumerRecord.value());
             ack.acknowledge();
         } catch (Exception e) {
             e.printStackTrace();

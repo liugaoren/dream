@@ -21,7 +21,7 @@ public class BookProducerServiceImpl implements BookProducerService{
 
 
     @Override
-    public void sendMessage(String topic, String o) {
+    public void sendMessage(String topic, Object o) {
         kafkaTemplate.send(topic, o);
     }
 }
