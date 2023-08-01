@@ -30,11 +30,11 @@ public class KafkaConfig {
      */
     @Bean
     public NewTopic myTopic() {
-        return new NewTopic(myTopic, 2, (short) 1);
+        return new NewTopic(myTopic, 3, (short) 2);
     }
 
     @Bean
     public NewTopic myTopic2() {
-        return new NewTopic(myTopic2, 1, (short) 1);
+        return new NewTopic(myTopic2, 3, (short) 2);
     }
 }
